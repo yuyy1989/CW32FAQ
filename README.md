@@ -1,8 +1,6 @@
 ---
 title: "CW32常见问题一览"
 author: "流浪剑士（977066873）"
-date: "2023年6月24日"
-updated: "2023年6月24日"
 html:
     toc: true
     toc_depth: 6
