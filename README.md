@@ -112,7 +112,9 @@ keil会自动转为相对路径
 接下来配置工程其它参数，仿照官方工程的参数配置即可  
 ![](./Images/35.png)  
 ![](./Images/36.png)  
+修改自己使用的烧录器  
 ![](./Images/37.png)  
+添加烧录算法时如果列表里找不到CW32的请确认是否安装了pack，如果已安装请确认device标签中芯片是否选择正确，如果芯片也选择正确尝试点击ok关闭工程配置窗口后再重新打开
 ![](./Images/38.png)  
 接下来创建一个main.c文件  
 ![](./Images/39.png)  
@@ -181,6 +183,9 @@ void assert_failed(uint8_t *file, uint32_t line)
 ![](./Images/60.png)  
 再查看是否选择了正确的烧录算法  
 ![](./Images/61.png)  
+如果这里是空白的，点击下面的ADD按钮添加烧录算法 
+![](./Images/115.png)   
+![](./Images/66.png)  
 如果烧录时提示找不到FLM文件  
 ![](./Images/62.png)  
 有两个解决方法：  
