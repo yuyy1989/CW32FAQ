@@ -1,5 +1,5 @@
 ---
-title: "CW32常见问题一览"
+title: "CW32开发常见问题一览"
 author: "流浪剑士（977066873）"
 html:
     toc: true
@@ -8,7 +8,7 @@ html:
     smooth_scroll: true
 --- 
 
-# CW32常见问题一览  
+# CW32开发常见问题一览  
 by流浪剑士 2023.6.24 
 
 目录
@@ -264,6 +264,22 @@ __RCC_FLASH_CLK_ENABLE();
 FLASH_SetLatency(FLASH_Latency_3); </font> 
 可设置的参数，需要根据你设置的频率进行调整  
 ![](./Images/80.png)  
+
+## 使用外部高速晶振HSE后获取到的HCLK和PCLK不准
+现象描述，开启HSE  
+![](./Images/117.png)   
+HCLK和PCLK都设置为1分频  
+![](./Images/120.png)   
+然后通过RCC_Sysctrl_GetHClkFreq和RCC_Sysctrl_GetPClkFreq获取当前HCLK和PCLK的当前频率  
+![](./Images/118.png)   
+可打印结果是  
+![](./Images/119.png)  
+原因是获取HCLK的方法里HSE频率是个常量，固定为16M
+![](./Images/121.png)  
+![](./Images/122.png)  
+而获取PCKL时又是通过HCLK计算得到  
+![](./Images/123.png)  
+所以当用的晶振不是16M时，通过RCC_Sysctrl_GetHClkFreq和RCC_Sysctrl_GetPClkFreq获取的频率就会和实际不一致，可以根据实际使用的晶振频率来修改那个宏定义  
 
 ## KEIL内调用外部编辑器  
 有人不喜欢KEIL的内置编辑器，可以用这个方法调用外部编辑器来写代码  
